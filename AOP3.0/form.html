@@ -1,0 +1,92 @@
+<html>
+ <head>
+  <script language="JavaScript">
+
+   var aCks1 = new Array("Primera", "Segunda", "Tercera");   
+   var aCks2 = new Array("Una", "Otra");   
+   var aCks3 = new Array("Check-1", "Check-2", "Check-3", "Check-4", "Check-5", "Check-6");   
+   var aCks4 = new Array("Check-1", "Check-2", "Check-3", "Check-4", "Check-5", "Check-6");   
+   var aCks5 = new Array("Check-1", "Check-2", "Check-3", "Check-4", "Check-5", "Check-6");   
+   var aCks6 = new Array("Esta sola");   
+
+   function cambia(oSel){
+    var nChecks;
+    var nSel = oSel[oSel.selectedIndex].value;
+    for (var i = 0; i < 6; i++){ 
+     eval("document.frm.ck" + String(i + 1) + ".style.display = 'none'");
+     eval("document.getElementById('sp' + String(i + 1)).innerHTML = ''");
+    }
+    eval("nChecks = aCks" + String(nSel) + ".length");
+    for (var i = 0; i < nChecks; i++){
+     eval("document.frm.ck" + String(i + 1) + ".style.display = ''");
+     eval("document.frm.ck" + String(i + 1) + ".value = aCks" + String(nSel) + "[i]");
+     eval("document.getElementById('sp' + String(i + 1)).innerHTML = aCks" + String(nSel) + "[i]");
+    }
+   }
+
+  </script>
+ </head>
+ <body>
+  <form name="frm">
+   Opción
+   <select name="NumeroDeChecks" onchange="cambia(this)">
+    <option value="0"></option>
+    <option value="1">Opcion 1</option>
+    <option value="2">Opcion 2</option>
+    <option value="3">Opcion 3</option>
+    <option value="4">Opcion 4</option>
+    <option value="5">Opcion 5</option>
+    <option value="6">Opcion 6</option>
+   </select><br>
+   <table>
+    <tr>
+     <td>
+      <input type="checkbox" name="ck1">
+     </td>
+     <td id="sp1">
+      Uno
+     </td>
+    </tr>
+    <tr>
+     <td>
+      <input type="checkbox" name="ck2">
+     </td>
+     <td id="sp2">
+      Dos
+     </td>
+    </tr>
+    <tr>
+     <td>
+      <input type="checkbox" name="ck3">
+     </td>
+     <td id="sp3">
+      Tres
+     </td>
+    </tr>
+    <tr>
+     <td>
+      <input type="checkbox" name="ck4">
+     </td>
+     <td id="sp4">
+      Cuatro
+     </td>
+    </tr>
+    <tr>
+     <td>
+      <input type="checkbox" name="ck5">
+     </td>
+     <td id="sp5">
+      Cinco
+     </td>
+    </tr>
+    <tr>
+     <td>
+      <input type="checkbox" name="ck6">
+     </td>
+     <td id="sp6">
+      Seis
+     </td>
+    </tr>
+  </form>
+ </body>
+</html> 

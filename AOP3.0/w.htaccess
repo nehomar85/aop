@@ -1,0 +1,40 @@
+RewriteBase /
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.html -f
+RewriteRule ^(.*)$ $1.html
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.php -f
+RewriteRule ^(.*)$ $1.php
+
+
+#ELIMINAR URLS CON EXTENSION REDIRECCION 301
+RewriteCond %{THE_REQUEST} \.html
+RewriteRule ^(.*)\.html$ /$1 [R=301,L]
+RewriteCond %{THE_REQUEST} \.htm
+RewriteRule ^(.*)\.htm$ /$1 [R=301,L]
+#RewriteCond %{THE_REQUEST} \.php
+#RewriteRule ^(.*)\.php$ /$1 [R=301,L]
+
+
+#RewriteEngine On
+#RewriteCond %{REQUEST_FILENAME} !-f
+#RewriteRule ^([^\.]+)$ $1.html [NC,L]
+#RewriteCond %{REQUEST_FILENAME} !-f
+#RewriteRule ^([^\.]+)$ $1.php [NC,L]
+
+
+#RewriteEngine On
+#RewriteRule consultar_caso\.php http://www.google.com [R]
+
+#DirectoryIndex index.html
+ErrorDocument 401 /error/401.php
+ErrorDocument 404 /error/404.php
+ErrorDocument 403 /error/403.php
+
+#No Index
+Options All -Indexes
+
+#Session timeout
+php_value session.cookie_lifetime 1200
+php_value session.gc_maxlifetime 1200
