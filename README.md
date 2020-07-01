@@ -2,3 +2,5 @@
 
 # 2020-04-02
 # Plataform AOP v3.1
+
+Plataform AOP v3.2
